@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Momento de Inércia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="style.css"> <!-- Corrigido o link do arquivo CSS -->
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-cogs"></i>
+            <h2>Toolminds</h2>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#outras-calculadoras">Outras Calculadoras</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container" id="calculadora">
+        <header>
+            <h1>Cálculo do Momento de Inércia</h1>
+            <p>Informe os parâmetros das seções transversais para calcular o momento de inércia.</p>
+        </header>
+
+        <section class="form-section">
+            <h2>Escolha a Seção Transversal:</h2>
+            <form id="inertiaForm">
+                <div class="input-group">
+                    <label for="seção">Selecione a seção:</label>
+                    <select id="seção" required>
+                        <option value="">Escolha uma seção</option>
+                        <option value="Retângulo oco">Retângulo oco</option>
+                        <option value="retangular">Retangular</option>
+                        <option value="círculo">Círculo</option>
+                        <option value="círculo_vazado">Círculo Vazado</option>
+                        <option value="I">Seção em I</option>
+                        <option value="C">Seção em C</option>
+                       
+                    </select>
+                </div>
+
+                <!-- Campos dinâmicos -->
+                <div id="dynamicInputs">
+                    <!-- Campos dinâmicos serão inseridos aqui -->
+                </div>
+
+                <button type="submit">Calcular Momento de Inércia</button>
+            </form>
+        </section>
+
+        <section class="result-section">
+            <h2>Resultado:</h2>
+            <div id="resultado">
+                <p>Aguarde o cálculo...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <p>&copy; 2025 Toolminds. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Vinculando o arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
