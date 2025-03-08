@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras - Toolminds</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-cogs"></i>
+            <h2>Toolminds</h2>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1>Calculadoras</h1>
+            <p>Escolha a calculadora desejada.</p>
+        </header>
+
+        <section class="calculadoras">
+            <div class="calculadora-link">
+                <h2><a href="mohr.html">Cálculo das Tensões Máximas e Mínimas</a></h2>
+                <p>Calcule as tensões máximas e mínimas em um material com base em tensões e cisalhamento.</p>
+            </div>
+
+            <div class="calculadora-link">
+                <h2><a href="index.html">Cálculo de Momento de Inércia</a></h2>
+                <p>Calcule o momento de inércia de uma seção transversal.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <p>&copy; 2025 Toolminds. Todos os direitos reservados.</p>
+    </footer>
+</body>
+<style type="text/css">
+    
+/* Estilos para as calculadoras */
+.container {
+    padding: 20px;
+}
+
+.calculadoras {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calculadora-link h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.calculadora-link p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.calculadora-link a {
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.calculadora-link a:hover {
+    text-decoration: underline;
+}
+
+</style>
+</html>
