@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Momento de Inércia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4102615193129429"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-cogs"></i>
+            <h2>Toolminds</h2>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#outras-calculadoras">Calculadoras</a></li>
+        </ul>
+    </div>
+
+       <!-- Main Content -->
+    <div class="container" id="calculadora">
+        <header>
+            <h1>Cálculo das Tensões Máximas e Mínimas</h1>
+            <p>Informe os parâmetros das tensões para calcular as tensões máximas e mínimas.</p>
+        </header>
+
+        <section class="form-section">
+            <form id="inertiaForm">
+                <div class="input-group">
+                    <label>Selecione o ângulo de rotação se houver</label>
+                    <input type="number" id="tetha" placeholder="Ângulo em graus">
+                </div>
+
+                <div>
+                    <label>Informe a tensão no eixo horizontal (ksi)</label>
+                    <input type="number" class="inp" id="sigma_x" placeholder="Tensão σx (ksi)">
+                    <label>Informe a tensão no eixo vertical (ksi)</label>
+                    <input type="number" class="inp" id="sigma_y" placeholder="Tensão σy (ksi)">
+                    <label>Informe o cisalhamento (ksi)</label>
+                    <input type="number" class="inp" id="tau_xy" placeholder="Cisalhamento τxy (ksi)">
+                </div>
+
+                <button type="submit">Calcular</button>
+            </form>
+        </section>
+
+        <section class="result-section">
+            <h2>Resultado:</h2>
+            <div id="resultado">
+                <p>Aguarde o cálculo...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Vinculando o arquivo JavaScript -->
+
+    <!-- Footer -->
+    <footer id="contato">
+        <p>&copy; 2025 Toolminds. Todos os direitos reservados.</p>
+    </footer>
+
+
+</body>
+<style type="text/css">
+    .inp{
+        margin-bottom:20px;
+    }
+
+</style>
+
+    <script>
+        // Definição da classe Mohr para calcular as tensões e cisalhamento
+        class Mohr {
+            constructor(sigma_x, sigma_y, tau_xy, tetha) {
+                this.sigma_x = sigma_x;
+                this.sigma_y = sigma_y;
+                this.tau_xy = tau_xy;
+                this.tetha = tetha * (Math.PI / 180); // Converter ângulo de graus para radianos
+            }
+
+            // Método para calcular as tensões máximas e mínimas
+            static stress_MaxMin(sigma_x, sigma_y, tau_xy, tetha) {
+                let sigma_med = (sigma_x + sigma_y) / 2;
+                let R = (((sigma_x - sigma_y) / 2) ** 2 + tau_xy ** 2) ** 0.5; // Raio do círculo de Mohr
+                let sigma_max = sigma_med + R;
+                let sigma_min = sigma_med - R;
+
+                // Caso o ângulo seja 0, as tensões máximas e mínimas são retornadas diretamente
+                if (tetha === 0) {
+                    return { sigma_max, sigma_min, R };
+                } else {
+                    // Cálculos para tensões rotacionadas
+                    tetha = tetha * (Math.PI / 180); // Converter ângulo de graus para radianos
+                    let sigma_x_rot = sigma_med + ((sigma_x - sigma_y) / 2) * Math.cos(2 * tetha) + tau_xy * Math.sin(2 * tetha);
+                    let sigma_y_rot = sigma_med - ((sigma_x - sigma_y) / 2) * Math.cos(2 * tetha) - tau_xy * Math.sin(2 * tetha);
+                    let tau_xy_rot = -((sigma_x - sigma_y) / 2) * Math.sin(2 * tetha) + tau_xy * Math.cos(2 * tetha);
+
+                    return { sigma_x_rot, sigma_y_rot, tau_xy_rot };
+                }
+            }
+        }
+
+        // Função para exibir os resultados
+        function exibirResultado(resultados) {
+            let resultadoDiv = document.getElementById("resultado");
+            
+            // Verificar se foi retornado as tensões máximas e mínimas
+            if (resultados.sigma_max !== undefined && resultados.sigma_min !== undefined) {
+                resultadoDiv.innerHTML = `
+                    <p><strong>Tensão Máxima (σmax):</strong> ${resultados.sigma_max.toFixed(2)} ksi</p>
+                    <p><strong>Tensão Mínima (σmin):</strong> ${resultados.sigma_min.toFixed(2)} ksi</p>
+                    <p><strong>Raio (R):</strong> ${resultados.R.toFixed(2)} ksi</p>
+                `;
+            } else {
+                // Exibir as tensões rotacionadas
+                resultadoDiv.innerHTML = `
+                    <p><strong>Tensão σx rotacionada:</strong> ${resultados.sigma_x_rot.toFixed(2)} ksi</p>
+                    <p><strong>Tensão σy rotacionada:</strong> ${resultados.sigma_y_rot.toFixed(2)} ksi</p>
+                    <p><strong>Cisalhamento τxy rotacionado:</strong> ${resultados.tau_xy_rot.toFixed(2)} ksi</p>
+                `;
+            }
+        }
+
+        // Lógica para capturar os dados e calcular as tensões
+        document.getElementById("inertiaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Pegando os valores dos inputs
+            let sigma_x = parseFloat(document.getElementById("sigma_x").value);
+            let sigma_y = parseFloat(document.getElementById("sigma_y").value);
+            let tau_xy = parseFloat(document.getElementById("tau_xy").value);
+            let tetha = parseFloat(document.getElementById("tetha").value);
+
+            // Verifica se os valores são válidos antes de calcular
+            if (isNaN(sigma_x) || isNaN(sigma_y) || isNaN(tau_xy) || isNaN(tetha)) {
+                alert("Por favor, insira valores válidos para todas as tensões e o ângulo.");
+                return;
+            }
+
+            // Realizando os cálculos
+            let resultados = Mohr.stress_MaxMin(sigma_x, sigma_y, tau_xy, tetha);
+
+            // Exibindo os resultados
+            exibirResultado(resultados);
+        });
+    </script>
+
+</html>
