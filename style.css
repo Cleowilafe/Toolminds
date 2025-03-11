@@ -1,1 +1,209 @@
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background-color:#f4f7fa;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;min-height:100vh;margin:0}.navbar{width:100%;background-color:#2980b9;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:15px 20px;box-shadow:0 2px 8px #0000001a;position:fixed;top:0;left:0;z-index:100}.navbar .logo{display:flex;align-items:center}.navbar i{margin-right:10px;font-size:1.6rem}.navbar h2{font-size:1.8rem;margin:0}.navbar ul{list-style-type:none;display:flex;align-items:center}.navbar ul li{margin:0 15px}.navbar ul li a{color:#fff;text-decoration:none;font-size:1rem}.navbar ul li a:hover{text-decoration:underline}.hamburger{display:none;cursor:pointer;font-size:1.8rem}.navbar.active ul{display:block}.navbar ul{display:flex}.container{background-color:#fff;border-radius:8px;box-shadow:0 4px 12px #0000001a;padding:20px;width:80%;max-width:600px;margin-top:80px;flex-grow:1}header{text-align:center;margin-bottom:20px}header h1{color:#2c3e50;font-size:2rem}header p{color:#7f8c8d;font-size:1rem}.form-section{margin-bottom:30px}h2{color:#34495e;margin-bottom:10px;font-size:1.4rem}.input-group{margin-bottom:15px}label{display:block;color:#2c3e50;font-size:1rem;margin-bottom:5px}input,select{width:100%;padding:10px;font-size:1rem;border:2px solid #ccc;border-radius:5px}input:focus,select:focus{border-color:#2980b9;outline:none}button{width:100%;padding:12px;background-color:#3498db;color:#fff;font-size:1.1rem;border:none;border-radius:5px;cursor:pointer;transition:background-color .3s}button:hover{background-color:#2980b9}.result-section{text-align:center}#resultado{background-color:#ecf0f1;padding:15px;border-radius:5px;border:2px solid #bdc3c7}#resultado p{color:#7f8c8d;font-size:1rem}footer{background-color:#2c3e50;color:#fff;padding:10px 0;text-align:center;width:100%;position:relative;bottom:0;left:0}body{display:flex;flex-direction:column;min-height:100vh}.container{flex-grow:1}footer{background-color:#333;color:#fff;text-align:center;padding:1rem;margin-top:20px}@media screen and (max-width: 768px){.hamburger{display:block;cursor:pointer}.navbar ul{display:none;flex-direction:column}.navbar.active ul{display:flex}}
+/* Estilo Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin-top: 80px;
+    flex-grow: 1;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #0056b3; /* Azul */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar i {
+    margin-right: 10px;
+    font-size: 1.6rem;
+}
+
+.navbar h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.navbar.active ul {
+    display: block;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+/* Formatação de Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #0056b3;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Seções */
+.info-section h2, .form-section h2, .result-section h2 {
+    color: #0056b3;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.info-section p, .form-section p, .result-section p, .info-section ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Formulário */
+.form-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.form-section select, .form-section button, .form-section input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-section button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.form-section button:hover {
+    background-color: #004085;
+}
+
+/* Resultados */
+.result-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#resultado {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #bdc3c7;
+}
+
+#resultado p {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* Rodapé */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Estilo das fórmulas */
+pre {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .navbar.active ul {
+        display: flex;
+    }
+}
+
