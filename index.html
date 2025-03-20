@@ -10,133 +10,53 @@
      crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Inclusão do MathJax para renderizar LaTeX -->
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
-
-
 </head>
 <body>
-
 
 <amp-auto-ads type="adsense"
         data-ad-client="ca-pub-4102615193129429">
 </amp-auto-ads>
 
-
-    <!-- Navbar -->
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+ <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container-fluid">
             <!-- Ícone de engrenagem -->
             <a class="navbar-brand" href="calculadoras.html" style="color: white;">
                 <i class="fas fa-cogs"></i> Toolminds
             </a>
-         
+
             <div class="collapse navbar-collapse" id="navbarNav">
 
             </div>
         </div>
     </nav>
-    
-  
+   
 
     <!-- Main Content -->
-    <div class="container" id="calculadora">
+    <div class="container">
         <header>
-            <h1>Cálculo do Momento de Inércia</h1>
-          
+            <h1>Calculadoras</h1>
+            <p>Escolha a calculadora desejada.</p>
         </header>
-        <div class="text">
-            <section class="info-section">
-                <h2>O Que é o Momento de Inércia?</h2>
-                <p>O momento de inércia, também conhecido como segundo momento de área, é uma propriedade geométrica fundamental em engenharia e física que mede a distribuição da área de uma seção transversal em relação a um eixo específico. Ele desempenha um papel crucial na análise de estruturas, especialmente em elementos submetidos a flexão, como vigas e lajes.</p>
-                
-                <h2>Por Que é Importante?</h2>
-                <p>O momento de inércia é essencial para determinar a resistência e a rigidez de uma seção transversal. Um maior momento de inércia indica que a seção é mais resistente a deformações e flexões. Isso é particularmente relevante em projetos de engenharia civil e mecânica, onde a segurança e a eficiência estrutural são primordiais.</p>
-            
-                <h2>Cálculo do Momento de Inércia</h2>
-                <p>O momento de inércia (I) de diferentes seções transversais pode ser calculado usando as seguintes fórmulas:</p>
-            
-                <h4>1. Seção Circular</h4>
-                <p>Para uma seção circular, o momento de inércia é calculado pela fórmula:</p>
-                <p><script type="math/tex">I = \frac{\pi r^4}{4}</script></p>
-                <p>onde r é o raio da seção. Essa forma é comum em tubos e colunas.</p>
-            
-                <h4>2. Seção Retangular</h4>
-                <p>O momento de inércia de uma seção retangular é dado por:</p>
-                <p><script type="math/tex">I = \frac{b h^3}{12}</script></p>
-                <p>onde b é a largura e h é a altura. É amplamente utilizado em vigas e lajes.</p>
-            
-                <h4>3. Seção Retangular Vazado</h4>
-                <p>Para uma seção retangular vazada, o momento de inércia pode ser calculado subtraindo o momento de inércia da seção interna do momento da seção externa:</p>
-                <p><script type="math/tex">I = I_{externo} - I_{interno}</script></p>
-                <p>Isso é útil em aplicações onde se busca reduzir peso sem comprometer a resistência.</p>
-            
-                <h4>4. Viga em I (Simétrica)</h4>
-                <p>A viga em I é uma forma eficiente para suportar cargas. Seu momento de inércia é calculado como:</p>
-                <p><script type="math/tex">I = \frac{b h^3}{12} - 2 \left( \frac{b_f h_f^3}{12} \right)</script></p>  
-                <p>onde b é a largura da flange, h é a altura total, e b_f e h_f são as dimensões da alma.</p>
-            
-                <h4>5. Viga em C</h4>
-                <p>O momento de inércia de uma viga em C é semelhante ao da viga em I, mas leva em consideração a falta da parte superior e inferior:</p>
-                <p><script type="math/tex">I = \frac{b h^3}{12} - 2 \left( \frac{b_f h_f^3}{12} \right) + A \cdot d^2</script></p>
-                <p>onde A é a área da seção e d é a distância do centroide ao eixo neutro.</p>
-            
-                <h2>Aplicações Práticas</h2>
-                <p>O momento de inércia é amplamente utilizado em diversas áreas, como:</p>
-                <ul>
-                    <li><strong>Engenharia Civil:</strong> Para calcular a capacidade de carga de vigas e colunas.</li>
-                    <li><strong>Engenharia Mecânica:</strong> Em análises de máquinas e componentes rotativos.</li>
-                    <li><strong>Arquitetura:</strong> Na determinação de como diferentes formas estruturais podem afetar a estabilidade de edifícios.</li>
-                </ul>
-            
-                <h3>Referências</h3>
-                <ul>
-                    <li>Beer, F. P., & Johnston, E. A. (2009). Mecânica dos Materiais. McGraw-Hill.</li>
-                    <li>Hibbeler, R. C. (2017). Mecânica dos Materiais. Pearson.</li>
-                </ul>
-            </section>
-            
-    
-        </div>
-        <section class="form-section">
-            <h2>Escolha a Seção Transversal:</h2>
-            <form id="inertiaForm">
-                <div class="input-group">
-                    <label for="seção">Selecione a seção:</label>
-                    <select id="seção" required>
-                        <option value="">Escolha uma seção</option>
-                        <option value="Retângulo oco">Retângulo oco</option>
-                        <option value="retangular">Retangular</option>
-                        <option value="círculo">Círculo</option>
-                        <option value="círculo_vazado">Círculo Vazado</option>
-                        <option value="I">Seção em I</option>
-                        <option value="C">Seção em C</option>
-                       
-                    </select>
-                </div>
 
-                <!-- Campos dinâmicos -->
-                <div id="dynamicInputs">
-                    <!-- Campos dinâmicos serão inseridos aqui -->
-                </div>
+        <section class="calculadoras">
+            <div class="calculadora-link">
+                <h2><a href="mohr.html">Cálculo das Tensões Máximas e Mínimas</a></h2>
+                <p>Calcule as tensões máximas e mínimas em um material com base em tensões e cisalhamento.</p>
+            </div>
 
-                <button type="submit">Calcular Momento de Inércia</button>
-            </form>
-        </section>
-
-        <section class="result-section">
-            <h2>Resultado:</h2>
-            <div id="resultado">
-                <p>Aguarde o cálculo...</p>
+            <div class="calculadora-link">
+                <h2><a href="index.html">Cálculo de Momento de Inércia</a></h2>
+                <p>Calcule o momento de inércia de uma seção transversal.</p>
             </div>
         </section>
     </div>
@@ -145,8 +65,39 @@
     <footer id="contato">
         <p>&copy; 2025 Toolminds. Todos os direitos reservados.</p>
     </footer>
-
-    <!-- Vinculando o arquivo JavaScript -->
-    <script src="script.js"></script>
 </body>
+<style type="text/css">
+    
+/* Estilos para as calculadoras */
+.container {
+    padding: 20px;
+}
+
+.calculadoras {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calculadora-link h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.calculadora-link p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.calculadora-link a {
+    color: #2980b9;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.calculadora-link a:hover {
+    text-decoration: underline;
+}
+
+</style>
 </html>
